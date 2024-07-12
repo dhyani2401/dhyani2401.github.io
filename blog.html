@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Destinations - The Desi Traveller</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+               :root {
+            --primary-color: #FF9933;
+            --secondary-color: #e20a6b;
+            --text-color: #333;
+            --background-color: #f4f4f4;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        header {
+            background-color: var(--background-color);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            max-height: 150px;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            margin: 0 1rem;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .search-icon {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .search-icon:hover {
+            color: var(--primary-color);
+        }
+
+        .divider {
+            border-top: 2px solid var(--secondary-color);
+            margin: 1rem 0;
+        }
+
+        
+        main {
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .content {
+            flex: 1;
+            padding-right: 2rem;
+            min-width: 300px;
+        }
+
+        .image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .tip-form {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .tip-form input[type="email"] {
+            padding: 0.5rem;
+            width: 250px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #e68a00;
+        }
+
+        .tip-form .button {
+            border-radius: 0 4px 4px 0;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                margin: 0.5rem 1rem 0.5rem 0;
+            }
+
+            main {
+                flex-direction: column;
+            }
+
+            .content, .image {
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+
+            .tip-form {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tip-form input[type="email"] {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 1rem;
+                border-radius: 4px;
+            }
+
+            .tip-form .button {
+                width: 100%;
+                max-width: 300px;
+                border-radius: 4px;
+            }
+        }
+       
+
+        .page-title {
+            text-align: center;
+            padding: 1.5rem 0;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            background-color: var(white);
+            margin: 0;
+        }
+        .destinations-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .destinations {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .destination {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .destination:hover {
+            transform: translateY(-5px);
+        }
+        .destination img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .destination-content {
+            padding: 1rem;
+        }
+        .destination h2 {
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+        .explore-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .explore-btn:hover {
+            background-color: #e68a00;
+        }
+        @media (max-width: 768px) {
+            .destinations {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        @media (max-width: 480px) {
+            .destinations {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        
+        <div class="logo">
+            <a href="index.html">
+                <img src="logo.png" alt="The Desi Traveller Logo">
+            </a>
+        </div>
+        <nav>
+            <a href="Home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="blog.html">Blog</a>
+            <a href="#">Start Here</a>
+            <a href="destinations.html">Destinations</a>
+            <a href="#">Booking Resources</a>
+            <a href="#">Contact Us</a>
+            <i class="fas fa-search search-icon"></i>
+        </nav>
+    </header>
+    <div class="divider"></div>
+
+    <h1 class="page-title">Explore Destinations</h1>
+    
+    <main class="destinations-container">
+        <div class="destinations">
+            <div class="destination">
+                <img src="https://th.bing.com/th/id/R.058ee40a9c772243bb1f4bcb471befab?rik=bsuvy%2fsftWYwmA&pid=ImgRaw&r=0" alt="Taj Mahal, Agra">
+                <div class="destination-content">
+                    <h2>Kashmir</h2>
+                    <p> For its natural beauty, it is called heaven on earth..</p>
+                    <a href="https://en.wikipedia.org/wiki/Kashmir" class="explore-btn" target="_blank" rel="noopener noreferrer">Explore</a>
+                </div>
+            </div>
+            <div <div class="destination">
+                <img src="https://th.bing.com/th/id/OIP.TXlEs3JCXlV4WxCwadThrwHaE7?rs=1&pid=ImgDetMain" alt="Taj Mahal, Agra">
+                <div class="destination-content">
+                    <h2>Taj Mahal, Agra</h2>
+                    <p>Marvel at the iconic symbol of love and architectural wonder.</p>
+                    <a href="https://en.wikipedia.org/wiki/Taj_Mahal" class="explore-btn" target="_blank" rel="noopener noreferrer">Explore</a>
+                </div>
+            </div>
+            <div class="destination">
+                <img src="https://th.bing.com/th/id/OIP.cuanV5_NuQNqsw3iCIcVagHaE8?rs=1&pid=ImgDetMain" alt="Jaipur City Palace">
+                <div class="destination-content">
+                    <h2>Jaipur City Palace</h2>
+                    <p>Discover the royal heritage of the Pink City.</p>
+                    <a href="https://en.wikipedia.org/wiki/City_Palace,_Jaipur" class="explore-btn" target="_blank" rel="noopener noreferrer">Explore</a>
+                </div>
+            </div>
+            <div class="destination">
+                <img src="https://th.bing.com/th/id/R.452eb1d2672c7ea73ecc76f5d7b176e4?rik=DBiCpc%2fLBE4Gmw&pid=ImgRaw&r=0" alt="Varanasi Ghats">
+                <div class="destination-content">
+                    <h2>Varanasi Ghats</h2>
+                    <p>Witness spiritual rituals along the sacred Ganges River.</p>
+                    <a href="https://en.wikipedia.org/wiki/Ghats_in_Varanasi" class="explore-btn" target="_blank" rel="noopener noreferrer">Explore</a>
+                </div>
+            </div>
+            <div class="destination">
+                <img src="https://th.bing.com/th/id/OIP.py0H0Ix_OnoccG2BcDioAwHaFj?rs=1&pid=ImgDetMain" alt="Goa Beaches">
+                <div class="destination-content">
+                    <h2>Goa Beaches</h2>
+                    <p>Relax on sun-kissed beaches and enjoy vibrant nightlife.</p>
+                    <a href="https://en.wikipedia.org/wiki/Goa" class="explore-btn" target="_blank" rel="noopener noreferrer">Explore</a>
+                </div>
+            </div>
+            <div class="destination">
+                <img src="https://th.bing.com/th/id/R.69a6be07672374a8411efd6328aaa0f4?rik=P%2fUfQHIv0H7EwQ&pid=ImgRaw&r=0" alt="Ladakh Landscapes">
+                <div class="destination-content">
+                    <h2>Ladakh Landscapes</h2>
+                    <p>Explore breathtaking high-altitude desert landscapes.</p>
+                    <a href="https://en.wikipedia.org/wiki/Geography_of_Ladakh" class="explore-btn"target="_blank" rel="noopener noreferrer">Explore</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <h3>Travel Tips</h3>
+        <p>Get expert travel tips straight to your inbox!</p>
+        <form class="tip-form">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit" class="button">Send me the tips</button>
+        </form>
+    </footer>
+</body>
+</html>
